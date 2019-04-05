@@ -1,68 +1,99 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 使用文档
 
-## Available Scripts
+### 1 clone
 
-In the project directory, you can run:
+```bash
+$ git clone https://github.com/maoguijun/multi-entry-react-app.git your-app
+```
 
-### `npm start`
+### 2 目录结构
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+|   .gitignore #
+|   package.json
+|   README.md
+|   yarn.lock
+|
++---config #webpack 相关配置
+|   |   env.js
+|   |   paths.js
+|   |   webpack.config.js
+|   |   webpackDevServer.config.js
+|   |
+|   \---jest
+|           cssTransform.js
+|           fileTransform.js
+|
++---public # 静态文件
+|       favicon.ico
+|       index.html
+|       manifest.json
+|
++---scripts # 脚本
+|       build.js
+|       start.js
+|       test.js
+|
+\---src # 项目文件
+    |   logo.svg
+    |   serviceWorker.js
+    |
+    +---h5 # 第一个页面
+    |   |   index.js
+    |   |
+    |   +---container
+    |   |   \---pcDemo
+    |   |           index.css
+    |   |           index.js
+    |   |
+    |   +---reducer
+    |   |       index.js
+    |   |
+    |   \---store
+    |           index.js
+    |
+    \---pc # 第二个页面
+        |   index.js
+        |
+        +---container
+        |   \---pcDemo
+        |           index.css
+        |           index.js
+        |
+        +---reducer
+        |       index.js
+        |
+        \---store
+                index.js
+```
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### 3 start
 
-### `npm test`
+```bash
+$ cd your-app
+$ yarn
+$ yarn start
+```
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### 启动之后查看[pc 页面](http://127.0.0.1:3000/pc/demo)，[h5 页面](http://127.0.0.1:3000/pc/demo)
 
-### `npm run build`
+### 4 build
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+$ yarn build
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### 5 如何增减加页面入口
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### 5.1 增加入口
+只需要在 `/src/`
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```bash
+$ mkdir newEntry
+$ cd newEntry
+$ touch index.js
+```
+##### 然后再重新 `yarn start`, 就可以在新的页面写代码了
+##
+#### 5.2 减少入口
+就更简单了，只要删掉一个src 下的文件夹就可以了，文件夹的index.js 改为其他的名字 如 a.js

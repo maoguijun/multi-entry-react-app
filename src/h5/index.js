@@ -8,14 +8,14 @@ import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom
 import PcDemo from './container/pcDemo'
 import configureStore from './store';
 const store = configureStore()
-console.log('pc')
+
 class Pc extends Component {
   render() {
     return (
       <Provider store={store}>
         <Router>
           <Switch>
-            <Route path='/pc/demo' component={PcDemo}></Route>
+            <Route path='/h5/demo' component={PcDemo}></Route>
           </Switch>
         </Router>
       </Provider>
