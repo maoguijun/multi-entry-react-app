@@ -15,7 +15,7 @@ const files = paths.entriesPath;
 const rewrites = files.map(({name, path}) => {
   return {
     from: new RegExp(`^\/${name}`),
-    to: `dist/${name}.html`
+    to: `/${name}.html`
   };
 });
 
@@ -57,8 +57,7 @@ module.exports = function (proxy, allowedHost) {
     // `manifest.json`, and libraries that are for some reason broken when imported
     // through Webpack. If you just want to use an image, put it in `src` and
     // `import` it from JavaScript instead. contentBase: paths.appPublic,
-    // contentBase: paths.appPublic,
-    contentBase: paths.appPath,
+    contentBase: paths.appPublic,
     // By default files from `contentBase` will not trigger a page reload.
     watchContentBase: true,
     // Enable hot reloading server. It will provide /sockjs-node/ endpoint for the
@@ -89,13 +88,7 @@ module.exports = function (proxy, allowedHost) {
       // Paths with dots should still use the history fallback. See
       // https://github.com/facebook/create-react-app/issues/387.
       disableDotRule: true,
-      rewrites: [
-        ...rewrites, 
-        // {
-        //   from: /^\//,
-        //   to: '/public/'
-        // }
-      ]
+      rewrites,
     },
     public: allowedHost,
     proxy,

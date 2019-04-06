@@ -118,7 +118,6 @@ module.exports = function (webpackEnv) {
 +  const entries = getEntries()
 
 +  const htmlPlugin = Object.keys(entries).map(name => {
-    console.log(131, name)
     return new HtmlWebpackPlugin(Object.assign({}, {
         inject: true,
         template: paths.appHtml,
