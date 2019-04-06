@@ -95,6 +95,22 @@ module.exports = function (webpackEnv) {
                 flexbox: 'no-2009'
               },
               stage: 3
+            }),
+            require('postcss-plugin-px2rem')({
+              rootValue: 75,
+              unitPrecision: 5,
+              propWhiteList: [],
+              propBlackList: [],
+              selectorBlackList: [],
+              ignoreIdentifier: false,
+              replace: true,
+              mediaQuery: false,
+              minPixelValue: 0,
+              prefix: 'data-dpr',
+              maxDpr: 3,
+              delete: true,
+              pxtorem: true,
+              exclude: /((\/|\\)pc(\/|\\))|((\/|\\)node_modules(\/|\\))/ //不希望被转换的加到这里
             })
           ],
           sourceMap: isEnvProduction && shouldUseSourceMap
