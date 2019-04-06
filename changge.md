@@ -83,15 +83,15 @@ module.exports = {
 + const rewrites = files.map(({name, path}) => {
   return {
     from: new RegExp(`^\/${name}`),
-    to: `dist/${name}.html`
+    to: `/${name}.html`
   };
 });
 
 modelue.exports = function (proxy, allowedHost) {
   return {
     ...
--   contentBase: paths.appPublic,
-+   contentBase: paths.appPath,
+    contentBase: paths.appPublic,
+    ...
 +   rewrites,
   }
 }
@@ -310,7 +310,7 @@ module.exports = function (webpackEnv) {
   <head>
     <meta charset="utf-8" />
 -   <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-+   <link rel="shortcut icon" href="/public/favicon.ico" />
++   <link rel="shortcut icon" href="/favicon.ico" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -318,7 +318,7 @@ module.exports = function (webpackEnv) {
     <meta name="theme-color" content="#000000" />
 
 -   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-+   <link rel="manifest" href="/public/manifest.json" />
++   <link rel="manifest" href="/manifest.json" />
 
 -    <title>REACT APP</title>
 +    <title><%= htmlWebpackPlugin.options.title %></title>
@@ -330,3 +330,52 @@ module.exports = function (webpackEnv) {
 </html>
 
 ```
+
+## 2014-04-06 操作内容
+
+### 1. 添加 less, less-load
+
+```bash
+$ yarn add less less-load --save
+```
+
+```js
+// /config/webpack.config.js
+
++ const lessRegex = /\.less$/;
++ const lessModuleRegex = /\.module\.less$/;
+
+module.exports = function (webpackEnv) {
+  return {
+    module: [
+      ...
+      rules: [
+        ...
+        // less loader
++       {
+          test: lessRegex,
+          exclude: lessModuleRegex,
+          use: getStyleLoaders({
+            importLoaders: 2,
+            sourceMap: isEnvProduction && shouldUseSourceMap
+          }, 'less-loader'),
+          sideEffects: true
+        },
++       {
+          test: lessModuleRegex,
+          use: getStyleLoaders({
+            importLoaders: 2,
+            sourceMap: isEnvProduction && shouldUseSourceMap,
+            modules: true,
+            getLocalIdent: getCSSModuleLocalIdent
+          }, 'less-loader')
+        },
+      ]
+    ]
+  }
+}
+
+```
+
+### 2. 添加eslint
+
