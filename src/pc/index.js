@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import {
-    BrowserRouter as Router,
-    Route,
-    Redirect,
-    Switch,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import * as serviceWorker from "../serviceWorker";
 // import BaseLayout from "./components/BaseLayout";
 // import routes from "./routes";

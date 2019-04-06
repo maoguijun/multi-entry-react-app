@@ -377,5 +377,8 @@ module.exports = function (webpackEnv) {
 
 ```
 
-### 2. 添加eslint
+### 2. 添加eslint, prettier
 
+```
+$ yarn add eslint
+```
