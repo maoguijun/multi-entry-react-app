@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 import logo from "../../../logo.svg";
 import "./index.less";
+import fetch from "../../../utils/fetch";
 
 class App extends Component {
+    componentDidMount = async () => {
+        const res = await fetch({
+            url: "https://api.github.com/search/repositories",
+            method: "get",
+            data: { q: "javascript", sort: "stars" },
+        });
+        console.log(res);
+    };
     render() {
         return (
             <div className="App-pc">

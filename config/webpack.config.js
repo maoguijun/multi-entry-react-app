@@ -96,7 +96,7 @@ module.exports = function (webpackEnv) {
               },
               stage: 3
             }),
-            require('postcss-plugin-px2rem')({
+            require('postcss-plugin-px2rem-plus')({
               rootValue: 75,
               unitPrecision: 5,
               propWhiteList: [],
@@ -110,7 +110,8 @@ module.exports = function (webpackEnv) {
               maxDpr: 3,
               delete: true,
               pxtorem: true,
-              exclude: /((\/|\\)pc(\/|\\))|((\/|\\)node_modules(\/|\\))/ //不希望被转换的加到这里
+              // exclude: /((\/|\\)pc(\/|\\))|((\/|\\)node_modules(\/|\\))/ //不希望被转换的加到这里
+              include: /((\/|\\)h5(\/|\\))/
             })
           ],
           sourceMap: isEnvProduction && shouldUseSourceMap
