@@ -1,3 +1,15 @@
+[![GitHub All Releases](https://img.shields.io/github/downloads/maoguijun/multi-entry-react-app/total.svg)](https://github.com/maoguijun/multi-entry-react-app)
+[![GitHub language](https://img.shields.io/github/languages/top/maoguijun/multi-entry-react-app.svg)](https://github.com/maoguijun/multi-entry-react-app)
+[![GitHub language count](https://img.shields.io/github/languages/count/maoguijun/multi-entry-react-app.svg)](https://github.com/maoguijun/multi-entry-react-app)
+[![GitHub license](https://img.shields.io/github/license/maoguijun/multi-entry-react-app.svg)](https://github.com/maoguijun/multi-entry-react-app)
+[![GitHub last-commit](https://img.shields.io/github/last-commit/maoguijun/multi-entry-react-app.svg)](https://github.com/maoguijun/multi-entry-react-app)
+[![GitHub contributors](https://img.shields.io/github/contributors/maoguijun/multi-entry-react-app.svg)](https://github.com/maoguijun/multi-entry-react-app)
+[![GitHub contributors](https://img.shields.io/david/maoguijun/multi-entry-react-app.svg)](https://github.com/maoguijun/multi-entry-react-app)
+[![GitHub contributors](https://img.shields.io/david/dev/maoguijun/multi-entry-react-app.svg)](https://github.com/maoguijun/multi-entry-react-app)
+[![GitHub stars](https://img.shields.io/github/stars/maoguijun/multi-entry-react-app.svg?style=social)](https://github.com/maoguijun/multi-entry-react-app)
+[![GitHub watchers](https://img.shields.io/github/watchers/maoguijun/multi-entry-react-app.svg?style=social)](https://github.com/maoguijun/multi-entry-react-app)
+[![GitHub forks](https://img.shields.io/github/forks/maoguijun/multi-entry-react-app.svg?style=social)](https://github.com/maoguijun/multi-entry-react-app)
+
 ## 使用文档
 
 ### 1 clone
