@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Redirect,
+} from "react-router-dom";
 import * as serviceWorker from "../serviceWorker";
 // import BaseLayout from "./components/BaseLayout";
 // import routes from "./routes";
@@ -17,6 +22,7 @@ class Pc extends Component {
             <Provider store={store}>
                 <Router>
                     <Switch>
+                        <Redirect from="/pc" exact to="/pc/demo" />
                         <Route path="/pc/demo" component={PcDemo} />
                     </Switch>
                 </Router>
