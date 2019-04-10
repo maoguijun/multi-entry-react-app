@@ -3,11 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import * as serviceWorker from "../serviceWorker";
-// import BaseLayout from "./components/BaseLayout";
-// import routes from "./routes";
-// import "./Pc.less";
-// import { routePath } from "./config";
-import PcDemo from "./container/pcDemo";
+import H5Demo from "./container/h5Demo";
 import configureStore from "./store";
 const store = configureStore();
 
@@ -17,7 +13,7 @@ class Pc extends Component {
             <Provider store={store}>
                 <Router>
                     <Switch>
-                        <Route path="/h5/demo" component={PcDemo} />
+                        <Route path="/h5/demo" component={H5Demo} />
                     </Switch>
                 </Router>
             </Provider>
